@@ -16,24 +16,21 @@ public OnFilterScriptInit()
 	print("[FeedbackCMD FS]: Filterscript by aKnoxx loaded.");
 	
 	
-	new File:openedfile = fopen("Feedback.txt", io_read);
-	if(openedfile) {
-		print ("[FeedbackCMD FS]: Feedback.txt file found /feedback now functional.");
-		print("--------------------------------------------------------------------------\n");
-		return 1;
-	}
-	else {
-	print ("[FeedbackCMD FS]: ERROR - Feedback.txt not found. /feedback will not function properly. Add a text file called 'Feedback'..."); 
-	print ("[FeedbackCMD FS]: ...in your scriptfiles folder, then reload the filterscript for it to function properly.");
-	print("--------------------------------------------------------------------------\n");
-	}
-	
+	new File:openedfile = fopen("Feedback.txt", io_write);	
 	fclose(openedfile);
 	return 1;
 }
 
 public OnFilterScriptExit()
 {
+	return 1;
+}
+
+public OnPlayerRequestClass(playerid, classid)
+{
+	SetPlayerPos(playerid, 1958.3783, 1343.1572, 15.3746);
+	SetPlayerCameraPos(playerid, 1958.3783, 1343.1572, 15.3746);
+	SetPlayerCameraLookAt(playerid, 1958.3783, 1343.1572, 15.3746);
 	return 1;
 }
 
